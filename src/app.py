@@ -53,12 +53,12 @@ def upload():
         print(destination)
         file.save(destination)
 
-    return render_template("complete.html")
+    return render_template("predictions.html")
 
 @app.route("/predict")
 
 def predict_image():
-    image_path = 'image_upload/test.jpg'
+    image_path = '../image_upload/test.jpg'
     image_path = join(dirname(realpath(__file__)), image_path)
     ## For all Models
     # Load Image
