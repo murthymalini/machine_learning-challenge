@@ -5,8 +5,8 @@ from flask import Flask, jsonify, render_template
 from os.path import join, dirname, realpath
 
 # Dependenciees for all models
-from keras.preprocessing import image
-from keras.models import Model
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.models import Model
 import numpy as np
 import json
 
@@ -23,7 +23,7 @@ from tensorflow.keras.applications.vgg19 import (
         decode_predictions as decode_predictions_vgg19
 )
 # Dependencies for RESNET50
-from keras.applications.resnet50 import (
+from tensorflow.keras.applications.resnet50 import (
         ResNet50,
         preprocess_input as preprocess_input_resnet50, 
         decode_predictions as decode_predictions_resnet50
@@ -42,7 +42,7 @@ app = Flask(__name__)
 @app.route("/")
 
 def predict_image():
-    image_path = 'image/1.jpg'
+    image_path = 'images/1.jpg'
     image_path = join(dirname(realpath(__file__)), image_path)
     ## For all Models
     # Load Image
@@ -97,7 +97,7 @@ def predict_image():
         json["no"] = i+1
         json["prediction"] = decoded_prediction_vgg19[0][i][1],
         json["probability"] = "{:.2%}".format(decoded_prediction_vgg19[0][i][2])
-        model_vgg16_resp.append(json)
+        model_vgg19_resp.append(json)
     json_answer.append(model_vgg19_resp)
     model_resnet50 = []
     for i in range(0,3):
