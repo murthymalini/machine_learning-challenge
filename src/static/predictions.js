@@ -1,1 +1,8 @@
-console.log("../image_upload/test.jpg")
+var url = `/predict`;
+
+d3.json(url).then((data) => {
+
+    console.log(data)
+
+
+})

@@ -58,7 +58,7 @@ def upload():
 @app.route("/predict")
 
 def predict_image():
-    image_path = '../image_upload/test.jpg'
+    image_path = 'image_upload/test.jpg'
     image_path = join(dirname(realpath(__file__)), image_path)
     ## For all Models
     # Load Image
