@@ -1,5 +1,4 @@
 import os
-import pandas as pd
 import json
 from flask import Flask, jsonify, render_template
 from os.path import join, dirname, realpath
@@ -8,7 +7,6 @@ from os.path import join, dirname, realpath
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.models import Model
 import numpy as np
-import json
 
 # Dependencies for VGG16
 from tensorflow.keras.applications.vgg16 import (
@@ -42,7 +40,7 @@ app = Flask(__name__)
 @app.route("/")
 
 def predict_image():
-    image_path = 'images/1.jpg'
+    image_path = 'image_upload/test.jpg'
     image_path = join(dirname(realpath(__file__)), image_path)
     ## For all Models
     # Load Image
